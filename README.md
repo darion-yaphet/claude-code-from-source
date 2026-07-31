@@ -24,6 +24,10 @@ Claude Code 是 Anthropic 对「智能体式命令行工具」的生产级实现
 
 建议按章节顺序阅读。第 1 章建立心智模型，后续每一章都是对「黄金路径」中某一环节的放大观察。
 
+## 在线阅读
+
+https://darion-yaphet.github.io/claude-code-from-source/
+
 ## 本地预览
 
 ```bash
@@ -37,7 +41,7 @@ npm run serve
 npm run build
 ```
 
-输出目录为 `_book/`。
+输出目录为 `_book/`。推送到 `main` 后，GitHub Actions 会自动构建并发布到 GitHub Pages。
 
 ## 说明
 
