@@ -1,0 +1,9 @@
+{
+  "title": "Claude Code From Source",
+  "description": "从源码拆解 Claude Code 的生产级智能体架构：查询循环、启动流水线、双层状态与 API 层。",
+  "language": "zh-hans",
+  "author": "Claude Code From Source 中文整理",
+  "plugins": [
+    "mermaid-hybrid"
+  ]
+}

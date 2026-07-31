@@ -1,0 +1,18 @@
+{
+  "name": "claude-code-from-source",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude Code From Source — HonKit / GitBook 文档站点",
+  "scripts": {
+    "serve": "honkit serve",
+    "build": "honkit build",
+    "pdf": "honkit pdf . ./claude-code-from-source.pdf"
+  },
+  "devDependencies": {
+    "honkit": "^6.0.0",
+    "honkit-plugin-mermaid-hybrid": "^1.0.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
