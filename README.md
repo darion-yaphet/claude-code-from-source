@@ -1,6 +1,10 @@
-# Claude Code From Source
+# Claude Code From Source（中文译本）
 
 从源码出发，拆解 Claude Code 的生产级智能体架构。
+
+本仓库是 [Claude Code from Source](https://claude-code-from-source.com/) 的**非官方中文翻译**。原文共 18 章，这里目前整理了第 1–4 章；完整内容、交互图表与后续章节请以原站为准：
+
+**原文：** https://claude-code-from-source.com/
 
 Claude Code 是 Anthropic 对「智能体式命令行工具」的生产级实现：将近两千个 TypeScript 文件组成的单体应用，把终端变成由 Claude 驱动的完整开发环境。它已经交付给数十万名开发者使用，其中每一个架构决策都会产生真实世界的后果。
 
@@ -43,6 +47,8 @@ npm run build
 
 输出目录为 `_book/`。推送到 `main` 后，GitHub Actions 会自动构建并发布到 GitHub Pages。
 
-## 说明
+## 说明与致谢
 
-本仓库内容为《Claude Code From Source》相关章节的中文整理版本，使用 [HonKit](https://github.com/honkit/honkit)（经典 GitBook 的活跃维护分支）构建文档站点。
+- 原文项目：[Claude Code from Source](https://claude-code-from-source.com/)，版权与内容归属原作者。
+- 本仓库为学习用途的中文翻译整理，**不代表原作者或 Anthropic**；如原文有更新，以原站为准。
+- 使用 [HonKit](https://github.com/honkit/honkit)（经典 GitBook 的活跃维护分支）构建文档站点。
