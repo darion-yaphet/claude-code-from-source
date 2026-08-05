@@ -2,7 +2,7 @@
 
 从源码出发，拆解 Claude Code 的生产级智能体架构。
 
-本仓库是 [Claude Code from Source](https://claude-code-from-source.com/) 的**非官方中文翻译**。原文共 18 章，这里目前整理了第 1–4 章；完整内容、交互图表与后续章节请以原站为准：
+本仓库是 [Claude Code from Source](https://claude-code-from-source.com/) 的**非官方中文翻译**。原文共 18 章，这里目前整理了第 1–8 章；完整内容、交互图表与后续章节请以原站为准：
 
 **原文：** https://claude-code-from-source.com/
 
@@ -25,6 +25,10 @@ Claude Code 是 Anthropic 对「智能体式命令行工具」的生产级实现
 | [第二章](chapter-02/README.md) | 快速启动：引导流水线与信任边界 |
 | [第三章](chapter-03/README.md) | 状态：双层架构与粘性锁存器 |
 | [第四章](chapter-04/README.md) | 与 Claude 通信：API 层与提示词缓存 |
+| [第五章](chapter-05/README.md) | 智能体循环 |
+| [第六章](chapter-06/README.md) | 工具：从定义到执行 |
+| [第七章](chapter-07/README.md) | 并发工具执行 |
+| [第八章](chapter-08/README.md) | 创建子智能体 |
 
 建议按章节顺序阅读。第 1 章建立心智模型，后续每一章都是对「黄金路径」中某一环节的放大观察。
 

@@ -14,3 +14,10 @@
 ## 第三部分：通信层
 
 * [第四章：与 Claude 通信：API 层](chapter-04/README.md)
+
+## 第四部分：核心循环与执行路径
+
+* [第五章：智能体循环](chapter-05/README.md)
+* [第六章：工具：从定义到执行](chapter-06/README.md)
+* [第七章：并发工具执行](chapter-07/README.md)
+* [第八章：创建子智能体](chapter-08/README.md)
