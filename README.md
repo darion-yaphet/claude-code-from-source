@@ -51,6 +51,8 @@ Claude Code 是 Anthropic 对「智能体式命令行工具」的生产级实现
 
 https://darion-yaphet.github.io/claude-code-from-source/
 
+站内搜索对中文分词有限，建议用完整术语（见 [术语表](GLOSSARY.md)）；也可直接在 [原站](https://claude-code-from-source.com/) 检索。
+
 ## 本地预览
 
 ```bash
@@ -58,13 +60,13 @@ npm install
 npm run serve
 ```
 
-浏览器打开提示的本地地址即可阅读。生成静态站点：
+浏览器打开提示的本地地址即可阅读。生成静态站点并做完整性校验：
 
 ```bash
-npm run build
+npm run verify
 ```
 
-输出目录为 `_book/`。推送到 `main` 后，GitHub Actions 会自动构建并发布到 GitHub Pages。
+输出目录为 `_book/`。推送到 `main` 后，GitHub Actions 会自动构建、校验并发布到 GitHub Pages。
 
 ## 说明与致谢
 

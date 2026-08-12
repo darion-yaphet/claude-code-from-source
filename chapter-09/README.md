@@ -965,7 +965,7 @@ Cache Sharing 本身也有成本。
 
 # 本章总结
 
-Fork Agent 的核心并不是“复制一个 Agent”。
+Fork Agent 的核心并不是“复制一个 智能体”。
 
 它真正解决的问题是：
 

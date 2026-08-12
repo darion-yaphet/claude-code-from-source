@@ -29,7 +29,7 @@ Claude Code 会同时攻击这五个目标。
 
 - 26-bit Bitmap；
 - Fuzzy Search 的 Score Bound；
-- Prompt Cache Sticky Latch；
+- Prompt Cache 粘性锁存器；
 - Streaming Tool Executor。
 
 需要特别说明的是，这些并不是“纸上谈兵”的优化。
@@ -527,7 +527,7 @@ scope: 'global'
 
 ---
 
-# Sticky Latch Field
+# 粘性锁存器 Field
 
 系统使用 5 个 Sticky-on Field。
 
@@ -1399,7 +1399,7 @@ flowchart TD
 - Prompt Stable Prefix；
 - Dynamic Boundary；
 - Global Cache Scope；
-- Sticky Latch；
+- 粘性锁存器；
 - Memoized Session Date；
 - Section Memoization。
 

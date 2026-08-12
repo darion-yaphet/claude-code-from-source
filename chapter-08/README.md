@@ -107,7 +107,7 @@ runAgent.ts
 - **Parent，父智能体**：调用 Agent 工具的智能体；
 - **Child，子智能体**：被创建出来的智能体。
 
-父智能体通常是顶层 REPL Agent，但并不总是如此。
+父智能体通常是顶层 REPL 智能体，但并不总是如此。
 
 在 Coordinator 模式下：
 
@@ -219,14 +219,14 @@ Schema 分为两层：
 这些多智能体字段支持第 9 章会介绍的 Swarm 模式：
 
 - 创建具名 Agent；
-- 多个 Agent 并发运行；
+- 多个 智能体 并发运行；
 - Agent 之间通过 `SendMessage({to: name})` 通信。
 
 隔离字段用于保护文件系统。
 
 例如，`worktree` 隔离会创建临时 Git Worktree，让 Agent 在仓库副本中工作。
 
-这样多个 Agent 同时修改同一个代码库时，就不会互相冲突。
+这样多个 智能体 同时修改同一个代码库时，就不会互相冲突。
 
 ---
 
@@ -361,7 +361,7 @@ getPrompt()
 - 当前是否处于 Coordinator 模式；
 - 当前订阅层级。
 
-非 Pro 用户还会看到一条关于并发启动多个 Agent 的提示。
+非 Pro 用户还会看到一条关于并发启动多个 智能体 的提示。
 
 ---
 
@@ -476,7 +476,7 @@ tengu_amber_stoat
 
 在 `runAgent()` 真正执行之前，`AgentTool.tsx` 中的 `call()` 会通过一棵决策树判断：
 
-- 要创建哪一种 Agent；
+- 要创建哪一种 智能体；
 - 使用什么隔离方式；
 - 同步还是异步运行。
 
@@ -548,7 +548,7 @@ tengu_amber_stoat
 
 它只接收已经解析好的 Agent 定义，然后执行。
 
-选择哪个 Agent 定义、如何隔离、同步还是异步，这些决策属于上层。
+选择哪个 智能体 定义、如何隔离、同步还是异步，这些决策属于上层。
 
 这种分离让 `runAgent()`：
 
@@ -659,7 +659,7 @@ export async function* runAgent({
 - Worktree 隔离；
 - Coordinator Worker。
 
-替代方案是为每一种 Agent 写一套生命周期函数，并复制大量逻辑，结果会更糟。
+替代方案是为每一种 智能体 写一套生命周期函数，并复制大量逻辑，结果会更糟。
 
 其中 `override` 对象尤其重要。
 
@@ -835,7 +835,7 @@ Fork 子智能体会获得父缓存的克隆。
 - 50 个文件内容不会复制 50 份；
 - 只会复制 50 个引用。
 
-但每个 Agent 的 LRU 淘汰行为是独立的，因为它们会按照自己的访问模式更新缓存。
+但每个 智能体 的 LRU 淘汰行为是独立的，因为它们会按照自己的访问模式更新缓存。
 
 ---
 
@@ -918,7 +918,7 @@ tengu_slim_subagent_claudemd
 
 这是最复杂的步骤。
 
-每一个 Agent 都会获得自定义的：
+每一个 智能体 都会获得自定义的：
 
 ```text
 getAppState()
@@ -1040,7 +1040,7 @@ awaitAutomatedChecksBeforeDialog
 
 后台任务多时，这一点很重要。
 
-否则 5 个 Agent 同时运行，可能把界面变成权限弹窗喷泉。
+否则 5 个 智能体 同时运行，可能把界面变成权限弹窗喷泉。
 
 ### 工具权限范围
 
@@ -1132,7 +1132,7 @@ ASYNC_AGENT_ALLOWED_TOOLS
 
 过滤。
 
-最终，每种 Agent 只看到自己应该使用的工具。
+最终，每种 智能体 只看到自己应该使用的工具。
 
 例如：
 
@@ -1518,7 +1518,7 @@ utils/forkedAgent.ts
 
 ### 文件缓存独立
 
-每个 Agent 拥有自己的 Read File Cache。
+每个 智能体 拥有自己的 Read File Cache。
 
 ### Thinking 配置
 
@@ -1640,7 +1640,7 @@ recordSidechainTranscript()
 
 记录到 Agent 独立的 Sidechain Transcript。
 
-它是每个 Agent 一个追加写入的 JSONL 文件。
+它是每个 智能体 一个追加写入的 JSONL 文件。
 
 这为 Resume 提供支持。
 
@@ -1738,9 +1738,9 @@ initialMessages.length = 0
 
 ### Whale Session
 
-源代码注释提到可能创建数百个 Agent 的 Whale Session。
+源代码注释提到可能创建数百个 智能体 的 Whale Session。
 
-每个 Agent 如果只泄漏一点点资源，最终也会形成明显问题。
+每个 智能体 如果只泄漏一点点资源，最终也会形成明显问题。
 
 不同清理步骤对应不同资源：
 
@@ -2472,7 +2472,7 @@ Plugin Agent 和 Policy Agent 被视为管理员信任内容，可以绕过这�
 
 Built-in Agent 属于 Claude Code 二进制本身。
 
-系统会精确记录每个 Agent 的来源。
+系统会精确记录每个 智能体 的来源。
 
 这不仅是元数据，它会直接控制行为。
 
@@ -2535,7 +2535,7 @@ Claude Code 从 Explore Agent 中移除 `CLAUDE.md`，不是因为里面的内�
 
 设计 Agent 时应该问：
 
-> 这个 Agent 完成工作真正需要知道什么？
+> 这个 智能体 完成工作真正需要知道什么？
 
 其余全部尽量删掉。
 
@@ -2699,7 +2699,7 @@ Explore 如果使用 Opus，单次调用仍然可以工作。
 
 # 统一生命周期
 
-`runAgent()` 的 15 个步骤会根据 Agent 定义，为每个 Agent 创建独特的执行环境。
+`runAgent()` 的 15 个步骤会根据 Agent 定义，为每个 智能体 创建独特的执行环境。
 
 子智能体并不是简单地：
 
@@ -2739,7 +2739,7 @@ Agent 类型被编码在配置中，而不是编码在大量 `if-else` 中。
 
 因此，增加一种新 Agent 通常只需要：
 
-> 编写一个 Agent Definition，而不是修改生命周期。
+> 编写一个 智能体 Definition，而不是修改生命周期。
 
 ---
 
@@ -2756,7 +2756,7 @@ Agent 类型被编码在配置中，而不是编码在大量 `if-else` 中。
 | Guide | Haiku | Read + Web | 动态 | 同步 | 文档查询 |
 | Statusline | Sonnet | Read + Edit | 最小 | 同步 | 状态栏配置 |
 
-没有两个 Agent 在五个设计维度上做出完全相同的选择。
+没有两个 智能体 在五个设计维度上做出完全相同的选择。
 
 每一个都针对自己的用途进行了优化。
 
@@ -2818,7 +2818,7 @@ Claude Code 的子智能体系统，并不是简单地开启另一个模型请�
 
 - 异步 Agent 如何通过任务状态机汇报进度；
 - 父智能体如何获取结果；
-- Coordinator 如何管理多个 Agent 共同完成一个目标。
+- Coordinator 如何管理多个 智能体 共同完成一个目标。
 
 本章讲的是如何创建 Agent。
 

@@ -11,6 +11,7 @@
   font-family: inherit;
   line-height: 1.75;
   letter-spacing: 0.01em;
+  font-size: 16px;
 }
 
 .markdown-section h1,
@@ -21,9 +22,34 @@
   letter-spacing: 0.02em;
 }
 
+.markdown-section a {
+  color: #2f6f6f;
+}
+
+.markdown-section a:hover {
+  color: #3d8b8b;
+}
+
 .markdown-section code,
 .markdown-section pre {
   font-family: "SF Mono", "Menlo", "Consolas", "Roboto Mono", monospace;
+}
+
+.markdown-section pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.markdown-section pre > code {
+  white-space: pre;
+  word-break: normal;
+}
+
+.markdown-section table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* 页内目录 */
@@ -52,15 +78,32 @@
 
 .page-toc-cn a {
   text-decoration: none;
+  color: #2f6f6f;
 }
 
 .page-toc-cn a:hover {
   text-decoration: underline;
+  color: #3d8b8b;
+}
+
+/* 侧边栏当前页高亮 */
+.book-summary ul.summary li.active > a,
+.book-summary ul.summary li.active > a:hover {
+  color: #2f6f6f;
+  font-weight: 600;
+  border-left: 3px solid #3d8b8b;
+  padding-left: calc(15px - 3px);
+}
+
+.book-summary ul.summary li a:hover {
+  color: #3d8b8b;
 }
 
 /* 回到顶部按钮微调 */
 .back-to-top {
   background: #3d8b8b !important;
+  width: 48px !important;
+  height: 48px !important;
 }
 
 .back-to-top i {
@@ -78,4 +121,160 @@
 .markdown-section pre:hover .copy-code-button,
 .markdown-section pre:hover button.copy-code-button {
   opacity: 1;
+}
+
+/* 搜索区中文提示与原站入口 */
+.search-cn-hint {
+  display: block;
+  margin: 8px 15px 12px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #5a6a6a;
+  background: rgba(61, 139, 139, 0.08);
+  border-radius: 6px;
+}
+
+.search-cn-hint a {
+  color: #2f6f6f;
+  font-weight: 600;
+}
+
+/* 暗色 / 夜间主题 */
+.book.color-theme-2 {
+  background: #1a1d23;
+}
+
+.book.color-theme-2 .book-body,
+.book.color-theme-2 .book-summary,
+.book.color-theme-2 .book-header {
+  background: #1a1d23;
+  color: #e6e8eb;
+}
+
+.book.color-theme-2 .markdown-section {
+  color: #e6e8eb;
+}
+
+.book.color-theme-2 .markdown-section a,
+.book.color-theme-2 .page-toc-cn a,
+.book.color-theme-2 .search-cn-hint a {
+  color: #7ec8c8;
+}
+
+.book.color-theme-2 .markdown-section a:hover,
+.book.color-theme-2 .page-toc-cn a:hover {
+  color: #9edddd;
+}
+
+.book.color-theme-2 .page-toc-cn {
+  background: rgba(126, 200, 200, 0.08);
+  border-left-color: #7ec8c8;
+}
+
+.book.color-theme-2 .page-toc-cn__title {
+  color: #9edddd;
+}
+
+.book.color-theme-2 .book-summary ul.summary li.active > a {
+  color: #9edddd;
+  border-left-color: #7ec8c8;
+  background: rgba(126, 200, 200, 0.08);
+}
+
+.book.color-theme-2 .search-cn-hint {
+  color: #b7c0c8;
+  background: rgba(126, 200, 200, 0.1);
+}
+
+.book.color-theme-2 .back-to-top {
+  background: #3d8b8b !important;
+}
+
+.book.color-theme-2 .markdown-section pre,
+.book.color-theme-2 .markdown-section code {
+  background: #12151a;
+}
+
+/* 移动端 */
+@media (max-width: 748px) {
+  .markdown-section {
+    font-size: 16px !important;
+    padding: 15px 16px 40px !important;
+    line-height: 1.8;
+  }
+
+  .markdown-section h1 {
+    font-size: 1.55em;
+  }
+
+  .markdown-section h2 {
+    font-size: 1.28em;
+  }
+
+  .markdown-section h3 {
+    font-size: 1.12em;
+  }
+
+  .markdown-section pre {
+    margin-left: -4px;
+    margin-right: -4px;
+    padding: 12px !important;
+    font-size: 13px;
+  }
+
+  .markdown-section img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 汉堡按钮 / 导航触控区域 */
+  .btn.pull-left.js-toolbar-action,
+  .book-header .btn {
+    min-width: 44px;
+    min-height: 44px;
+    line-height: 44px !important;
+    padding: 0 10px !important;
+  }
+
+  .book-header h1 {
+    padding-left: 8px;
+    font-size: 14px;
+  }
+
+  .back-to-top {
+    right: 14px !important;
+    bottom: 18px !important;
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .page-toc-cn {
+    padding: 0.85em 0.9em;
+    font-size: 0.95em;
+  }
+
+  .page-toc-cn li {
+    margin: 0.4em 0;
+  }
+
+  .page-toc-cn a {
+    display: inline-block;
+    padding: 2px 0;
+    min-height: 28px;
+  }
+
+  .search-cn-hint {
+    margin: 8px 12px 10px;
+  }
+
+  #book-search-input {
+    height: 48px;
+  }
+
+  #book-search-input input {
+    font-size: 16px !important; /* 避免 iOS 聚焦放大 */
+    height: 48px;
+    padding: 0 12px;
+  }
 }

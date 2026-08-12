@@ -590,7 +590,7 @@ permissionMode = dontAsk
 Thinking Disabled
 ```
 
-每个 Agent Hook 都拥有自己的 Session Scope。
+每个 智能体 Hook 都拥有自己的 Session Scope。
 
 适合复杂验证，例如：
 

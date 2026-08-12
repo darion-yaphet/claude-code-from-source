@@ -1,3 +1,16 @@
+## 译名约定
+
+正文默认使用中文术语；保留稳定英文专名与代码标识符。
+
+| 推荐写法 | 避免 / 说明 |
+|------|------|
+| 智能体 | 泛指时少用裸写 Agent；专名保留如 Fork Agent、Explore Agent |
+| 子智能体 | 少用 Sub-Agent / sub-agent（URL、原文标题除外） |
+| Hook | 可括注「钩子」；技术讨论优先 Hook |
+| 粘性锁存器 | 少用未加中文的 Sticky Latch |
+| 查询循环 | 图示缩写可保留 Query Loop / QL |
+| 提示词缓存 | Prompt Cache 可并存于首次出现 |
+
 ## 智能体（Agent）
 
 由大语言模型驱动、可自主选择并调用工具以完成任务的运行时实体。本书统一用「智能体」指代 agent；保留英文专名时写作 Agent（如 Fork Agent）。
@@ -24,7 +37,7 @@
 
 ## Hook
 
-生命周期钩子。在工具调用前/后、停止等时机介入，可拦截、改写或注入行为。常见如 `PreToolUse`、`PostToolUse`、`Stop`。
+生命周期钩子。在工具调用前/后、停止等时机介入，可拦截、改写或注入行为。常见如 `PreToolUse`、`PostToolUse`、`Stop`。正文优先写 Hook，必要时括注「钩子」。
 
 ## Swarm
 

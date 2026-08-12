@@ -203,7 +203,7 @@ Sonnet Side Query 会从 Memory Manifest 中选择最多 5 个当前相关 Memor
 
 # 赌注三：Self-describing Tool，而不是 Central Orchestrator
 
-很多 Agent Framework 使用中央 Tool Registry。
+很多 智能体 Framework 使用中央 Tool Registry。
 
 开发者在某个统一 Config 中描述：
 
@@ -768,7 +768,7 @@ Claude Code 同时支持：
 
 标准化 Tool Discovery 与 Invocation 意味着：
 
-> 为一个 Agent 写的 Tool，可以被所有支持 MCP 的 Agent 使用。
+> 为一个 智能体 写的 Tool，可以被所有支持 MCP 的 Agent 使用。
 
 例如：
 
@@ -858,11 +858,11 @@ cancelled
 
 随着单 Agent 变得越来越强，压力可能从：
 
-> 怎么协调更多 Agent？
+> 怎么协调更多 智能体？
 
 转向：
 
-> 能不能让一个 Agent 强到不需要协调？
+> 能不能让一个 智能体 强到不需要协调？
 
 现实很可能是两者长期共存。
 

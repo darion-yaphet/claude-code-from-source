@@ -1,0 +1,8 @@
+{
+  "name": "honkit-plugin-search-cn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "honkit": "*"
+  }
+}

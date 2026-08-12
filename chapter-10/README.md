@@ -1043,7 +1043,7 @@ VS Code Subagent Panel 使用这些事件展示：
 
 Coordinator Mode 把 Claude Code 从：
 
-> 一个 Agent + 若干后台助手
+> 一个 智能体 + 若干后台助手
 
 变成：
 
@@ -1092,7 +1092,7 @@ Agent 需要：
 - 第 3 步适合并行；
 - 第 4 步依赖第 3 步。
 
-单个 Agent 顺序执行，会浪费大量 Token 反复读取文件。
+单个 智能体 顺序执行，会浪费大量 Token 反复读取文件。
 
 多个后台 Agent 如果完全无协调，又可能做出互相不一致的修改。
 
@@ -2972,7 +2972,7 @@ Mailbox 支持这种异步拓扑。
 
 ---
 
-## 每个 Agent 都是一场独立 API Conversation
+## 每个 智能体 都是一场独立 API Conversation
 
 每个后台 Agent 都拥有自己的：
 
@@ -3351,7 +3351,7 @@ flowchart TD
     S --> P["Peer-to-peer Agents"]
 ```
 
-这套架构最值得借鉴的地方，不是“多开几个 Agent”。
+这套架构最值得借鉴的地方，不是“多开几个 智能体”。
 
 而是：
 

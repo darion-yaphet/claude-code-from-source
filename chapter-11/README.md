@@ -67,7 +67,7 @@ Agent 永远像：
 - FAQ；
 - Reference Material。
 
-但它与一个 Agent 真正需要跨 Session 记住的东西，在架构上并不完全匹配。
+但它与一个 智能体 真正需要跨 Session 记住的东西，在架构上并不完全匹配。
 
 Agent Memory 并不是一座知识库。
 
