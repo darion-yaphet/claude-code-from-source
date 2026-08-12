@@ -2,7 +2,7 @@
 
 从源码出发，拆解 Claude Code 的生产级智能体架构。
 
-本仓库是 [Claude Code from Source](https://claude-code-from-source.com/) 的**非官方中文翻译**。原文共 18 章，这里目前整理了第 1–8 章；完整内容、交互图表与后续章节请以原站为准：
+本仓库是 [Claude Code from Source](https://claude-code-from-source.com/) 的**非官方中文翻译**。原文共 18 章（含结语），这里已整理完整译本；交互图表等仍以原站为准：
 
 **原文：** https://claude-code-from-source.com/
 
@@ -16,6 +16,9 @@ Claude Code 是 Anthropic 对「智能体式命令行工具」的生产级实现
 - 启动流水线如何把复杂初始化压进约 300ms 的感知预算
 - 为什么状态要拆成 Bootstrap State 与 AppState 双层架构
 - API 层如何在多提供商、提示词缓存与流式故障检测之间取平衡
+- 智能体循环、工具流水线与并发执行如何协作
+- 子智能体、Fork / Swarm、记忆、Skills / Hooks 如何扩展系统
+- 终端 UI、MCP、远程控制与性能工程中的关键取舍
 
 ## 阅读路径
 
@@ -29,6 +32,16 @@ Claude Code 是 Anthropic 对「智能体式命令行工具」的生产级实现
 | [第六章](chapter-06/README.md) | 工具：从定义到执行 |
 | [第七章](chapter-07/README.md) | 并发工具执行 |
 | [第八章](chapter-08/README.md) | 创建子智能体 |
+| [第九章](chapter-09/README.md) | Fork Agent 与提示词缓存 |
+| [第十章](chapter-10/README.md) | 任务、协调与 Swarm |
+| [第十一章](chapter-11/README.md) | 记忆：跨会话学习 |
+| [第十二章](chapter-12/README.md) | 扩展性：Skills 与 Hooks |
+| [第十三章](chapter-13/README.md) | 终端 UI |
+| [第十四章](chapter-14/README.md) | 输入与交互 |
+| [第十五章](chapter-15/README.md) | MCP：通用工具协议 |
+| [第十六章](chapter-16/README.md) | 远程控制与云端执行 |
+| [第十七章](chapter-17/README.md) | 性能：每一毫秒与 Token |
+| [结语](chapter-18/README.md) | 五个架构赌注 |
 
 建议按章节顺序阅读。第 1 章建立心智模型，后续每一章都是对「黄金路径」中某一环节的放大观察。
 
