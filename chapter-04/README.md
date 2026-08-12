@@ -1,5 +1,8 @@
 # 第四章：与 Claude 通信：API 层
 
+> 原文：[Ch 4. Talking to Claude — The API Layer](https://claude-code-from-source.com/ch04-api-layer/)
+
+
 第 3 章说明了状态保存在哪里，以及两个状态层级之间如何通信。
 
 现在，我们继续追踪这些状态真正被使用时会发生什么：系统需要与语言模型通信。
@@ -23,7 +26,7 @@ API 层处理的失败模式，比系统中的其他任何部分都更多。
 
 ## API 请求生命周期
 
-原网页在这里提供了一张可播放、可逐步执行，并可模拟 `529` 错误的交互图。
+原文在这里提供了一张可播放、可逐步执行，并可模拟 `529` 错误的交互图（见 [原文交互版](https://claude-code-from-source.com/ch04-api-layer/)）。
 
 图中包含以下核心参与者：
 
@@ -179,7 +182,7 @@ Claude API 提供服务端提示词缓存。
 
 系统提示词会被构建成一个字符串区段数组，其中有一条至关重要的分界线。
 
-原网页提供了一张可以切换提供商和 Feature Toggle 的交互图。
+原文提供了一张可以切换提供商和 Feature Toggle 的交互图（见 [原文交互版](https://claude-code-from-source.com/ch04-api-layer/)）。
 
 静态结构如下：
 

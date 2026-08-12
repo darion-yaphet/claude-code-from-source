@@ -1,5 +1,8 @@
 # 第十章：任务、协调与 Swarm
 
+> 原文：[Ch 10. Tasks, Coordination, and Swarms](https://claude-code-from-source.com/ch10-coordination/)
+
+
 ## 单线程的极限
 
 第 8 章讲了如何创建一个子智能体，也就是那套根据 Agent 定义构建隔离执行环境的 15 步生命周期。

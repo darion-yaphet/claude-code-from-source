@@ -1,5 +1,8 @@
 # 第十七章：性能：每一毫秒、每一个 Token 都重要
 
+> 原文：[Ch 17. Performance — Every Millisecond and Token Counts](https://claude-code-from-source.com/ch17-performance/)
+
+
 ## 资深工程师的性能手册
 
 在 Agentic System 中做性能优化，并不是一个问题，而是五个问题。

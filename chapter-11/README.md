@@ -1,5 +1,8 @@
 # 第十一章：记忆：跨会话学习
 
+> 原文：[Ch 11. Memory — Learning Across Conversations](https://claude-code-from-source.com/ch11-memory/)
+
+
 ## 无状态问题
 
 到目前为止，前面所有章节描述的机制都只存在于单次 Session 中。

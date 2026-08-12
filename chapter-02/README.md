@@ -1,5 +1,8 @@
 # 第二章：快速启动：引导流水线
 
+> 原文：[Ch 2. Starting Fast — The Bootstrap Pipeline](https://claude-code-from-source.com/ch02-bootstrap/)
+
+
 如果说第 1 章提供了 Claude Code 的架构地图，那么本章展示的，就是它抵达可工作状态时所走的路线。
 
 六个核心抽象中的每一个组件，包括查询循环、工具系统、状态层、Hooks 和记忆系统，都必须在用户看到光标之前完成初始化。
@@ -259,7 +262,7 @@ const keychainPromise = readKeychainCredentials()
 
 之所以需要这条边界，是因为 Claude Code 会读取环境变量，而环境变量可能已经被恶意污染。
 
-原网页用一张交互图展示了信任边界前后的工作。
+原文用一张交互图展示了信任边界前后的工作（见 [原文交互版](https://claude-code-from-source.com/ch02-bootstrap/)）。
 
 整理为静态 Markdown 后如下。
 
@@ -360,7 +363,7 @@ program.hook('preAction', async (thisCommand) => {
 
 `init()` 完成之后，`setup()` 会注册系统需要的全部能力。
 
-原网页中的时间图显示，Setup 阶段的大部分操作都在并行执行。
+原文中的时间图显示，Setup 阶段的大部分操作都在并行执行（见 [原文交互版](https://claude-code-from-source.com/ch02-bootstrap/)）。
 
 | 操作 | 约耗时 |
 |---|---:|
@@ -510,7 +513,7 @@ flowchart TD
 
 完整流水线的时间结构如下。
 
-原网页给出的总体对比为：
+原文给出的总体对比为（交互时间线见 [原文交互版](https://claude-code-from-source.com/ch02-bootstrap/)）：
 
 ```text
 串行执行：约 800ms

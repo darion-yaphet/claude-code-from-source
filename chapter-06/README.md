@@ -1,5 +1,8 @@
 # 第六章：工具：从定义到执行
 
+> 原文：[Ch 6. Tools — From Definition to Execution](https://claude-code-from-source.com/ch06-tools/)
+
+
 ## 神经系统
 
 第 5 章介绍了智能体循环，也就是那个不断执行 `while (true)` 的核心流程：流式接收模型响应、收集工具调用，再把工具结果反馈给模型。

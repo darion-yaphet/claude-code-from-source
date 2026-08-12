@@ -1,5 +1,8 @@
 # 第七章：并发工具执行
 
+> 原文：[Ch 7. Concurrent Tool Execution](https://claude-code-from-source.com/ch07-concurrency/)
+
+
 ## 等待的代价
 
 第 6 章追踪了一次工具调用的完整生命周期：从 API 响应中的原始 `tool_use` 区块开始，经过输入校验、权限检查、执行以及结果格式化。
@@ -471,7 +474,7 @@ Context Modifier 是这种依赖关系的正式表达方式。
 
 ## 顺序执行与流式推测执行
 
-原网页提供了一张可以播放的对比动画。
+原文提供了一张可以播放的对比动画（见 [原文交互版](https://claude-code-from-source.com/ch07-concurrency/)）。
 
 静态示例如下：
 

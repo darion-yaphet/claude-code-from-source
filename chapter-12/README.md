@@ -1,5 +1,8 @@
 # 第十二章：扩展性：Skills 与 Hooks
 
+> 原文：[Ch 12. Extensibility — Skills and Hooks](https://claude-code-from-source.com/ch12-extensibility/)
+
+
 ## 扩展系统的两个维度
 
 任何一套扩展系统，最终都在回答两个问题：

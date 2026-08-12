@@ -1,5 +1,8 @@
 # 第十三章：终端 UI
 
+> 原文：[Ch 13. The Terminal UI](https://claude-code-from-source.com/ch13-terminal-ui/)
+
+
 ## 为什么要自定义渲染器？
 
 终端不是浏览器。

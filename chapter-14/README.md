@@ -1,5 +1,8 @@
 # 第十四章：输入与交互
 
+> 原文：[Ch 14. Input and Interaction](https://claude-code-from-source.com/ch14-input-interaction/)
+
+
 ## 从原始字节到有意义的动作
 
 当你在 Claude Code 中先按：

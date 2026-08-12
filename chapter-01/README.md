@@ -1,5 +1,8 @@
 # 第一章：AI 智能体的架构
 
+> 原文：[Ch 1. The Architecture of an AI Agent](https://claude-code-from-source.com/ch01-architecture/)
+
+
 ## 你正在看到什么
 
 传统的命令行工具，本质上是一个函数。它接收参数、执行工作，然后退出。
@@ -38,7 +41,7 @@ Claude Code 建立在六个核心抽象之上。
 
 除此之外的所有部分，包括四百多个工具类文件、分叉维护的终端渲染器、Vim 模拟层和成本追踪器，都是为了支持这六个抽象而存在的。
 
-原网页在此处提供了一张可拖动、可悬停并可点击的交互式关系图。转换为静态 Markdown 后，可以将其概括为下面的关系：
+原文提供了一张可拖动、可悬停并可点击的交互式关系图（见 [原文交互版](https://claude-code-from-source.com/ch01-architecture/)）。转换为静态 Markdown 后，可以将其概括为下面的关系：
 
 ```mermaid
 flowchart LR
@@ -315,7 +318,7 @@ add error handling to the login function
 
 随后用户按下回车。
 
-原网页在此处提供了一个可播放、可逐步执行和可重置的交互式动画，展示一次完整请求如何在大约 3.2 秒内经过以下组件：
+原文提供了一个可播放、可逐步执行和可重置的交互式动画（见 [原文交互版](https://claude-code-from-source.com/ch01-architecture/)），展示一次完整请求如何在大约 3.2 秒内经过以下组件：
 
 - 用户 / REPL
 - 查询循环
@@ -408,7 +411,7 @@ Claude Code 能够在你的机器上运行任意 Shell 命令。
 
 当一次工具调用需要权限时，系统会沿着严格的权限解析链进行判断。
 
-原网页提供了一个交互式权限解析器，可以选择工具类型、权限模式和 Hook 规则，然后查看最终解析结果。
+原文提供了一个交互式权限解析器（见 [原文交互版](https://claude-code-from-source.com/ch01-architecture/)），可以选择工具类型、权限模式和 Hook 规则，然后查看最终解析结果。
 
 静态 Markdown 可以将示例选项整理如下。
 
@@ -436,7 +439,7 @@ default
 标准交互模式，由用户审批每一个操作。
 ```
 
-### 原页面提供的预设场景
+### 原文提供的预设场景
 
 - `auto` 模式下读取文件
 - `plan` 模式下执行 `Bash rm`
@@ -497,7 +500,7 @@ Claude Code 可以通过四条不同的基础设施路径与 Claude 通信。
 
 对于系统的其余部分而言，这些差异是透明的。
 
-原网页中的交互式架构图可以转换为下面的 Mermaid 图：
+原文中的交互式架构图（见 [原文交互版](https://claude-code-from-source.com/ch01-architecture/)）可以转换为下面的 Mermaid 图：
 
 ```mermaid
 flowchart TB

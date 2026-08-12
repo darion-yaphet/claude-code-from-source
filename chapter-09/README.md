@@ -1,5 +1,8 @@
 # 第九章：Fork Agent 与提示词缓存
 
+> 原文：[Ch 9. Fork Agents and the Prompt Cache](https://claude-code-from-source.com/ch09-fork-agents/)
+
+
 ## 95% 的关键洞察
 
 当一个父智能体并行创建 5 个子智能体时，每个子智能体 API 请求中的绝大部分内容其实完全相同。

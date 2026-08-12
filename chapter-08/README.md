@@ -1,5 +1,8 @@
 # 第八章：创建子智能体
 
+> 原文：[Ch 8. Spawning Sub-Agents](https://claude-code-from-source.com/ch08-sub-agents/)
+
+
 ## 智能的倍增
 
 单个智能体已经非常强大。

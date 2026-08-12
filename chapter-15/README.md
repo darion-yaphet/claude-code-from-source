@@ -1,5 +1,8 @@
 # 第十五章：MCP：通用工具协议
 
+> 原文：[Ch 15. MCP — The Universal Tool Protocol](https://claude-code-from-source.com/ch15-mcp/)
+
+
 ## 为什么 MCP 的意义超越 Claude Code
 
 本书前面的章节几乎都在讲 Claude Code 自身内部的实现。

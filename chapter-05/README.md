@@ -1,5 +1,8 @@
 # 第五章：智能体循环
 
+> 原文：[Ch 5. The Agent Loop](https://claude-code-from-source.com/ch05-agent-loop/)
+
+
 ## 跳动的心脏
 
 第 4 章介绍了 API 层如何把配置转换成流式 HTTP 请求：客户端如何创建、系统提示词如何组装、响应如何以 Server-Sent Events 的形式到达。
@@ -462,7 +465,7 @@ Claude Code 中几乎所有功能，包括：
 
 它们有固定顺序，而且顺序非常重要。
 
-原网页提供了一个交互式压缩演示，将一段超过 200K Token 的对话逐层缩小。
+原文提供了一个交互式压缩演示（见 [原文交互版](https://claude-code-from-source.com/ch05-agent-loop/)），将一段超过 200K Token 的对话逐层缩小。
 
 静态结构如下：
 
@@ -749,7 +752,7 @@ FallbackTriggeredError
 
 只有前一层失败，系统才会进入下一层。
 
-原网页允许模拟三类错误：
+原文允许模拟三类错误（见 [原文交互版](https://claude-code-from-source.com/ch05-agent-loop/)）：
 
 - Prompt Too Long，`413`；
 - Max Output Tokens；

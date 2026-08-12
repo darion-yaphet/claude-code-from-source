@@ -1,5 +1,8 @@
 # 第三章：状态：双层架构
 
+> 原文：[Ch 3. State — The Two-Tier Architecture](https://claude-code-from-source.com/ch03-state/)
+
+
 第 2 章追踪了 Claude Code 从进程启动到首次渲染的完整引导流水线。
 
 在这一过程结束时，系统已经拥有一个配置完整的运行环境。

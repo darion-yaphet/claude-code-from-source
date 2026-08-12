@@ -1,4 +1,6 @@
-# 五个架构赌注
+# 结语：五个架构赌注
+
+> 原文：[Ch 18. Epilogue — What We Learned](https://claude-code-from-source.com/ch18-epilogue/)
 
 Claude Code 并不是唯一的 Agentic System，也不是第一个。
 

@@ -66,6 +66,8 @@ npm run build
 
 ## 说明与致谢
 
-- 原文项目：[Claude Code from Source](https://claude-code-from-source.com/)，版权与内容归属原作者。
-- 本仓库为学习用途的中文翻译整理，**不代表原作者或 Anthropic**；如原文有更新，以原站为准。
+- 原文项目：[Claude Code from Source](https://claude-code-from-source.com/)，版权与内容归属原作者；原文仓库见 [alejandrobalderas/claude-code-from-source](https://github.com/alejandrobalderas/claude-code-from-source)。
+- 本仓库为学习用途的**非官方中文翻译**，**不代表原作者或 Anthropic**；如原文有更新，以原站为准。
+- 许可与使用限制见 [LICENSE](LICENSE)（译文整理部分采用 CC BY-NC-SA 4.0；原文版权仍归原作者）。
+- 各章文首提供原文链接；文中标注的交互图、动画请到原站查看完整交互版。
 - 使用 [HonKit](https://github.com/honkit/honkit)（经典 GitBook 的活跃维护分支）构建文档站点。

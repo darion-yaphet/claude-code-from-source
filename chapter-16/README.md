@@ -1,5 +1,8 @@
 # 第十六章：远程控制与云端执行
 
+> 原文：[Ch 16. Remote Control and Cloud Execution](https://claude-code-from-source.com/ch16-remote/)
+
+
 ## Agent 走出 Localhost
 
 到目前为止，前面所有章节都默认 Claude Code 运行在代码所在的同一台机器上。Terminal 是本地的，File System 是本地的，模型响应会流式返回到一个同时拥有键盘和 Working Directory 的本地进程。
