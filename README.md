@@ -1,5 +1,7 @@
 # Claude Code From Source（中文译本）
 
+![封面](cover.jpg)
+
 从源码出发，拆解 Claude Code 的生产级智能体架构。
 
 本仓库是 [Claude Code from Source](https://claude-code-from-source.com/) 的**非官方中文翻译**。原文共 18 章（含结语），这里已整理完整译本；交互图表等仍以原站为准：
@@ -70,4 +72,5 @@ npm run build
 - 本仓库为学习用途的**非官方中文翻译**，**不代表原作者或 Anthropic**；如原文有更新，以原站为准。
 - 许可与使用限制见 [LICENSE](LICENSE)（译文整理部分采用 CC BY-NC-SA 4.0；原文版权仍归原作者）。
 - 各章文首提供原文链接；文中标注的交互图、动画请到原站查看完整交互版。
+- 术语统一见 [术语表](GLOSSARY.md)。
 - 使用 [HonKit](https://github.com/honkit/honkit)（经典 GitBook 的活跃维护分支）构建文档站点。

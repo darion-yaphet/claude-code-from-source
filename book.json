@@ -4,6 +4,23 @@
   "language": "zh-hans",
   "author": "Claude Code From Source 中文整理",
   "plugins": [
-    "mermaid-hybrid"
-  ]
+    "mermaid-hybrid",
+    "@dogatana/back-to-top-button",
+    "copy-code-button",
+    "page-toc-cn"
+  ],
+  "pluginsConfig": {
+    "fontsettings": {
+      "theme": "white",
+      "family": "sans",
+      "size": 2
+    },
+    "back-to-top-button": {
+      "icon": "<i class='fa fa-angle-up'></i>",
+      "animate": 400
+    }
+  },
+  "styles": {
+    "website": "styles/website.css"
+  }
 }

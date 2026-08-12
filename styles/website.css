@@ -1,0 +1,81 @@
+/* 中文阅读优化 */
+.book.font-family-0,
+.book.font-family-1 {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC",
+    "Source Han Sans SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+
+.book.font-family-1 .book-body,
+.book.font-family-0 .book-body,
+.markdown-section {
+  font-family: inherit;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3 {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.markdown-section code,
+.markdown-section pre {
+  font-family: "SF Mono", "Menlo", "Consolas", "Roboto Mono", monospace;
+}
+
+/* 页内目录 */
+.page-toc-cn {
+  margin: 1.25em 0 1.75em;
+  padding: 0.9em 1.1em 1em;
+  border-left: 3px solid #3d8b8b;
+  background: rgba(61, 139, 139, 0.06);
+  border-radius: 0 6px 6px 0;
+}
+
+.page-toc-cn__title {
+  font-weight: 600;
+  margin-bottom: 0.55em;
+  color: #2f5f5f;
+}
+
+.page-toc-cn ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.page-toc-cn li {
+  margin: 0.25em 0;
+}
+
+.page-toc-cn a {
+  text-decoration: none;
+}
+
+.page-toc-cn a:hover {
+  text-decoration: underline;
+}
+
+/* 回到顶部按钮微调 */
+.back-to-top {
+  background: #3d8b8b !important;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  top: 10px;
+  left: 16px;
+}
+
+/* 代码复制按钮可读性 */
+.markdown-section .copy-code-button,
+.markdown-section button.copy-code-button {
+  opacity: 0.75;
+}
+
+.markdown-section pre:hover .copy-code-button,
+.markdown-section pre:hover button.copy-code-button {
+  opacity: 1;
+}

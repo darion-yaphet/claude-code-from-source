@@ -5,12 +5,15 @@
   "description": "Claude Code From Source — HonKit / GitBook 文档站点",
   "scripts": {
     "serve": "honkit serve",
-    "build": "honkit build",
+    "build": "honkit build && node scripts/inject-og.js",
     "pdf": "honkit pdf . ./claude-code-from-source.pdf"
   },
   "devDependencies": {
+    "@dogatana/honkit-plugin-back-to-top-button": "^1.0.0",
+    "gitbook-plugin-copy-code-button": "^0.0.2",
     "honkit": "^6.0.0",
-    "honkit-plugin-mermaid-hybrid": "^1.0.2"
+    "honkit-plugin-mermaid-hybrid": "^1.0.2",
+    "honkit-plugin-page-toc-cn": "file:plugins/page-toc-cn"
   },
   "engines": {
     "node": ">=18"
