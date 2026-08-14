@@ -8,7 +8,8 @@
     "@dogatana/back-to-top-button",
     "copy-code-button",
     "page-toc-cn",
-    "search-cn"
+    "search-cn",
+    "theme-toggle"
   ],
   "pluginsConfig": {
     "fontsettings": {

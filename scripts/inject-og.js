@@ -22,6 +22,10 @@ const tags = [
 ].join("\n        ");
 
 const marker = 'property="og:image"';
+const themeMarker = "ccfs-theme-bootstrap";
+const themeScript = `<script>
+(function(){try{var t=localStorage.getItem("ccfs-color-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>`;
 
 function walk(dir) {
   for (const name of fs.readdirSync(dir)) {
@@ -34,9 +38,16 @@ function walk(dir) {
     }
     if (!name.endsWith(".html")) continue;
     let html = fs.readFileSync(full, "utf8");
-    if (html.includes(marker)) continue;
     if (!html.includes("</head>")) continue;
-    html = html.replace("</head>", `        ${tags}\n    </head>`);
+    if (!html.includes(marker)) {
+      html = html.replace("</head>", `        ${tags}\n    </head>`);
+    }
+    if (!html.includes(themeMarker)) {
+      html = html.replace(
+        "<head>",
+        `<head>\n        <!-- ${themeMarker} -->\n        ${themeScript}`
+      );
+    }
     fs.writeFileSync(full, html);
   }
 }
@@ -47,4 +58,4 @@ if (!fs.existsSync(bookDir)) {
 }
 
 walk(bookDir);
-console.log("Injected Open Graph meta tags into _book HTML");
+console.log("Injected Open Graph meta tags and theme bootstrap into _book HTML");
