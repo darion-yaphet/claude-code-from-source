@@ -137,13 +137,22 @@ html[data-theme="dark"] {
   color: var(--ccfs-text-muted);
 }
 
+.page-inner {
+  max-width: 880px;
+  padding: 24px 28px 56px;
+}
+
 .book-summary ul.summary li.header {
   color: var(--ccfs-sidebar-header);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
 }
 
 .book-summary ul.summary li.divider,
 .book.color-theme-2 .book-summary ul.summary li.divider {
   background: var(--ccfs-border);
+  margin: 8px 16px;
 }
 
 .book-summary ul.summary li a,
@@ -152,6 +161,12 @@ html[data-theme="dark"] {
 .book.color-theme-2 .book-summary ul.summary li span {
   color: var(--ccfs-sidebar-text);
   background: transparent;
+}
+
+.book-summary ul.summary li a {
+  border-radius: 8px;
+  margin: 1px 10px;
+  padding: 8px 12px;
 }
 
 .book-summary ul.summary li a:hover,
@@ -164,16 +179,19 @@ html[data-theme="dark"] {
 .book.color-theme-2 .book-summary ul.summary li.active > a {
   color: var(--ccfs-link) !important;
   font-weight: 600;
-  border-left: 3px solid var(--ccfs-accent);
-  padding-left: calc(15px - 3px);
+  border-left: none;
+  box-shadow: inset 3px 0 0 var(--ccfs-accent);
+  padding-left: 12px;
   background: var(--ccfs-bg-muted) !important;
 }
 
 #book-search-input,
 .book.color-theme-2 #book-search-input {
   background: var(--ccfs-bg) !important;
-  border-color: var(--ccfs-border);
-  color: var(--ccfs-text);
+  border: 1px solid var(--ccfs-border);
+  border-radius: 8px;
+  margin: 12px 12px 8px;
+  overflow: hidden;
 }
 
 #book-search-input input {
@@ -212,6 +230,78 @@ html[data-theme="dark"] {
 
 .dropdown-menu .button:hover {
   color: var(--ccfs-heading);
+}
+
+/* 封面图：按书封比例收进视口，避免撑满整页 */
+.markdown-section img[alt="封面"] {
+  display: block;
+  width: min(340px, 72vw);
+  max-height: min(62vh, 560px);
+  height: auto;
+  object-fit: contain;
+  margin: 0.25em auto 1.35em;
+  border-radius: 10px;
+  border: 1px solid var(--ccfs-border);
+  box-shadow: 0 16px 48px rgba(26, 29, 35, 0.16);
+}
+
+.markdown-section h1 + p img[alt="封面"] {
+  margin-top: 0.15em;
+}
+
+.markdown-section.ccfs-cover-page {
+  text-align: center;
+  padding-top: 3vh !important;
+}
+
+.markdown-section.ccfs-cover-page h1 {
+  font-size: 1.72em;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.85em;
+}
+
+.markdown-section.ccfs-cover-page > p {
+  max-width: 34em;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--ccfs-text-muted);
+}
+
+.cover-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55em 0.65em;
+  margin: 1.5em auto 0;
+}
+
+.cover-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.48em 1.15em;
+  border-radius: 999px;
+  border: 1px solid var(--ccfs-accent);
+  background: var(--ccfs-bg-muted);
+  color: var(--ccfs-link) !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cover-actions a:first-child {
+  background: var(--ccfs-accent);
+  color: #fff !important;
+  border-color: var(--ccfs-accent);
+}
+
+.cover-actions a:hover {
+  filter: brightness(1.06);
+}
+
+.markdown-section.ccfs-cover-page h2#本地预览,
+.markdown-section.ccfs-cover-page h2#本地预览 ~ * {
+  display: none !important;
 }
 
 .book.font-family-0,
@@ -263,9 +353,67 @@ html[data-theme="dark"] {
   background-color: var(--ccfs-hr);
 }
 
+.markdown-section h2 {
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--ccfs-border);
+}
+
+.markdown-section.ccfs-cover-page h1,
+.markdown-section.ccfs-cover-page h2 {
+  border-bottom: none;
+}
+
 .markdown-section blockquote {
   color: var(--ccfs-quote);
-  border-left-color: var(--ccfs-quote-border);
+  border-left: 3px solid var(--ccfs-accent);
+  background: var(--ccfs-bg-muted);
+  border-radius: 0 8px 8px 0;
+  padding: 0.7em 1em;
+}
+
+.markdown-section h2#阅读路径 + table {
+  table-layout: fixed;
+  border: 1px solid var(--ccfs-table-border);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.markdown-section h2#阅读路径 + table th {
+  background: var(--ccfs-bg-muted);
+  font-weight: 600;
+}
+
+.markdown-section h2#阅读路径 + table th:first-child,
+.markdown-section h2#阅读路径 + table td:first-child {
+  width: 24%;
+  white-space: nowrap;
+}
+
+.markdown-section h2#阅读路径 + table th:last-child,
+.markdown-section h2#阅读路径 + table td:last-child {
+  width: 76%;
+}
+
+.markdown-section h2#阅读路径 + table th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.markdown-section h2#阅读路径 + table th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.markdown-section h2#阅读路径 + table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.markdown-section h2#阅读路径 + table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.markdown-section h2#阅读路径 + table tbody tr:hover td {
+  background: var(--ccfs-bg-muted);
 }
 
 .markdown-section code,
@@ -294,9 +442,9 @@ html[data-theme="dark"] {
 }
 
 .markdown-section table {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .markdown-section table td,
@@ -304,6 +452,7 @@ html[data-theme="dark"] {
 .book.color-theme-2 .markdown-section table td,
 .book.color-theme-2 .markdown-section table th {
   border-color: var(--ccfs-table-border);
+  padding: 10px 16px;
 }
 
 .markdown-section table tr,
@@ -401,9 +550,35 @@ html[data-theme="dark"] {
   font-weight: 600;
 }
 
-/* 主题切换按钮 */
+/* 主题切换按钮：用 SVG 替换 Font Awesome 空心月亮 */
 .book-header .btn.ccfs-theme-toggle {
-  font-size: 16px;
+  font-size: 0;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-header .btn.ccfs-theme-toggle:before {
+  content: none !important;
+}
+
+.book-header .btn.ccfs-theme-toggle .ccfs-theme-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.book-header .btn.ccfs-theme-toggle .ccfs-theme-icon--sun {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.book-header .btn.ccfs-theme-toggle .ccfs-theme-icon--moon {
+  fill: currentColor;
+  stroke: none;
 }
 
 /* 移动端 */
@@ -436,6 +611,11 @@ html[data-theme="dark"] {
   .markdown-section img {
     max-width: 100%;
     height: auto;
+  }
+
+  .markdown-section img[alt="封面"] {
+    width: min(280px, 72vw);
+    max-height: min(58vh, 480px);
   }
 
   /* 汉堡按钮 / 导航触控区域 */

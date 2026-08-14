@@ -1,6 +1,7 @@
 # Summary
 
-* [前言](README.md)
+* [封面](README.md)
+* [前言](PREFACE.md)
 * [术语表](GLOSSARY.md)
 
 ## 第一部分：架构地图

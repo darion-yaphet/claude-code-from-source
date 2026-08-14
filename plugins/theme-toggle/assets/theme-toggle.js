@@ -75,11 +75,21 @@ require(["gitbook"], function (gitbook) {
     }
   }
 
+  var SUN_SVG =
+    '<svg class="ccfs-theme-icon ccfs-theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<circle cx="12" cy="12" r="4.2"/>' +
+    '<path d="M12 3v1.8M12 19.2V21M4.93 4.93l1.27 1.27M17.8 17.8l1.27 1.27M3 12h1.8M19.2 12H21M4.93 19.07l1.27-1.27M17.8 6.2l1.27-1.27"/>' +
+    "</svg>";
+  var MOON_SVG =
+    '<svg class="ccfs-theme-icon ccfs-theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path d="M20.2 14.3A8.2 8.2 0 0 1 9.7 3.8 8.4 8.4 0 1 0 20.2 14.3z"/>' +
+    "</svg>";
+
   function updateToggleIcon(dark) {
     var btn = document.querySelector(".ccfs-theme-toggle");
     if (!btn) return;
-    btn.classList.remove("fa-moon-o", "fa-sun-o");
-    btn.classList.add(dark ? "fa-sun-o" : "fa-moon-o");
+    btn.classList.remove("fa", "fa-moon-o", "fa-sun-o", "fa-adjust");
+    btn.innerHTML = dark ? SUN_SVG : MOON_SVG;
     btn.setAttribute("aria-label", dark ? "切换为浅色" : "切换为深色");
     btn.setAttribute("title", dark ? "切换为浅色" : "切换为深色");
   }
@@ -109,6 +119,27 @@ require(["gitbook"], function (gitbook) {
     updateToggleIcon(dark);
     applyMermaid(dark);
     observeBookTheme();
+  }
+
+  function markCoverPage() {
+    var section = document.querySelector(".markdown-section");
+    if (!section) return;
+    var isCover = !!section.querySelector('img[alt="封面"]');
+    section.classList.toggle("ccfs-cover-page", isCover);
+    document.body.classList.toggle("ccfs-cover", isCover);
+    if (!isCover) return;
+
+    Array.prototype.forEach.call(section.querySelectorAll(":scope > p"), function (p) {
+      if (p.classList.contains("cover-actions")) return;
+      if (p.querySelectorAll("a").length < 3) return;
+      if (!/PREFACE|前言/.test(p.innerHTML)) return;
+      p.className = "cover-actions";
+      p.innerHTML = p.innerHTML.replace(/\s*·\s*/g, "");
+      Array.prototype.forEach.call(p.querySelectorAll("strong"), function (strong) {
+        while (strong.firstChild) strong.parentNode.insertBefore(strong.firstChild, strong);
+        strong.parentNode.removeChild(strong);
+      });
+    });
   }
 
   function toggle(e) {
@@ -144,7 +175,7 @@ require(["gitbook"], function (gitbook) {
     }
 
     gitbook.toolbar.createButton({
-      icon: "fa " + (isDark() ? "fa-sun-o" : "fa-moon-o"),
+      icon: "fa fa-adjust",
       label: isDark() ? "切换为浅色" : "切换为深色",
       className: "ccfs-theme-toggle",
       position: "right",
@@ -153,6 +184,7 @@ require(["gitbook"], function (gitbook) {
 
     apply(isDark(), false);
     observeBookTheme();
+    markCoverPage();
 
     if (window.matchMedia) {
       var mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -169,5 +201,6 @@ require(["gitbook"], function (gitbook) {
     patchMermaid();
     observeBookTheme();
     updateToggleIcon(isDark());
+    markCoverPage();
   });
 });
