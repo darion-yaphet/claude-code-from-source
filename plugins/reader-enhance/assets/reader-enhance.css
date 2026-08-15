@@ -1,0 +1,392 @@
+/* 阅读进度条 */
+.reader-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--ccfs-accent, #3d8b8b), #4ecdc4);
+  z-index: 10000;
+  transition: width 0.08s ease-out;
+  box-shadow: 0 0 8px rgba(61, 139, 139, 0.4);
+}
+
+/* 文章元信息（字数统计与预计阅读时间） */
+.reader-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  margin: 12px 0 24px;
+  background: var(--ccfs-bg-muted, rgba(61, 139, 139, 0.06));
+  border: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.07));
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ccfs-text-muted, #5a6a6a);
+}
+
+.reader-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reader-meta-icon {
+  opacity: 0.8;
+}
+
+.reader-meta-dot {
+  opacity: 0.4;
+}
+
+/* 底部 上一章 / 下一章 卡片导航 */
+.reader-nav-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.07));
+}
+
+@media (max-width: 640px) {
+  .reader-nav-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reader-nav-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.07));
+  background: var(--ccfs-bg-elevated, #fafafa);
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 76px;
+}
+
+.reader-nav-card--placeholder {
+  visibility: hidden;
+}
+
+.reader-nav-card--next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.reader-nav-card:hover {
+  border-color: var(--ccfs-accent, #3d8b8b);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+  background: var(--ccfs-bg-muted, rgba(61, 139, 139, 0.06));
+}
+
+.reader-nav-card__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ccfs-text-muted, #5a6a6a);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.reader-nav-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ccfs-heading, #1a1d23);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.reader-nav-card:hover .reader-nav-card__title {
+  color: var(--ccfs-link, #2f6f6f);
+}
+
+/* 图片灯箱放大 */
+.reader-zoomable {
+  cursor: zoom-in;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.reader-zoomable:hover {
+  opacity: 0.95;
+}
+
+.reader-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reader-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.reader-lightbox__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.reader-lightbox__container {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: zoom-out;
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reader-lightbox.is-open .reader-lightbox__container {
+  transform: scale(1);
+}
+
+.reader-lightbox__content img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.reader-lightbox__hint {
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.02em;
+}
+
+/* 搜索框快捷键提示徽章 */
+#book-search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.reader-search-shortcut {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 2px 6px;
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--ccfs-text-muted, #8b95a1);
+  background: var(--ccfs-bg-muted, rgba(0, 0, 0, 0.05));
+  border: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.1));
+  border-radius: 4px;
+  pointer-events: auto;
+  cursor: pointer;
+  line-height: 1.3;
+  user-select: none;
+}
+
+/* 快捷键帮助弹窗 */
+.reader-shortcut-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reader-shortcut-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.reader-shortcut-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 18, 24, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.reader-shortcut-modal__dialog {
+  position: relative;
+  width: 90%;
+  max-width: 440px;
+  background: var(--ccfs-bg, #ffffff);
+  border: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.12));
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
+  transform: scale(0.96) translateY(10px);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reader-shortcut-modal.is-open .reader-shortcut-modal__dialog {
+  transform: scale(1) translateY(0);
+}
+
+.reader-shortcut-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.08));
+}
+
+.reader-shortcut-modal__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ccfs-heading, #1a1d23);
+}
+
+.reader-shortcut-modal__close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ccfs-text-muted, #8b95a1);
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.15s ease;
+}
+
+.reader-shortcut-modal__close:hover {
+  color: var(--ccfs-heading, #1a1d23);
+}
+
+.reader-shortcut-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reader-shortcut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--ccfs-text, #333333);
+}
+
+.reader-shortcut-desc {
+  color: var(--ccfs-text, #333333);
+}
+
+.reader-shortcut-keys kbd {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--ccfs-heading, #1a1d23);
+  background: var(--ccfs-bg-elevated, #f3f4f6);
+  border: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.15));
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* 代码块增强：相对定位、语言角标、圆角边框 */
+.markdown-section pre {
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid var(--ccfs-border, rgba(0, 0, 0, 0.07));
+  padding: 1.1em 1.2em;
+}
+
+.reader-code-lang {
+  position: absolute;
+  top: 8px;
+  right: 48px;
+  font-size: 10.5px;
+  font-weight: 700;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  color: var(--ccfs-text-muted, #8b95a1);
+  opacity: 0.65;
+  letter-spacing: 0.05em;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Callout / Alert 标注块增强 */
+.markdown-section blockquote.reader-callout {
+  position: relative;
+  margin: 1.4em 0;
+  padding: 0.9em 1.2em;
+  border-left-width: 4px;
+  border-left-style: solid;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.96em;
+}
+
+.markdown-section blockquote.reader-callout > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Note */
+.markdown-section blockquote.reader-callout--note {
+  border-left-color: #0284c7;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+/* Tip */
+.markdown-section blockquote.reader-callout--tip {
+  border-left-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+/* Important */
+.markdown-section blockquote.reader-callout--important {
+  border-left-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+/* Warning */
+.markdown-section blockquote.reader-callout--warning {
+  border-left-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+/* Caution */
+.markdown-section blockquote.reader-callout--caution {
+  border-left-color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* Source Reference */
+.markdown-section blockquote.reader-callout--source {
+  border-left-color: var(--ccfs-accent, #3d8b8b);
+  background: var(--ccfs-bg-muted, rgba(61, 139, 139, 0.06));
+}
+
